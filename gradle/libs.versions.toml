@@ -1,0 +1,88 @@
+[versions]
+# libraries
+junit = "4.13.2"
+jansi = "2.4.0"
+commonsLang3 = "3.19.0"
+fastjson = "1.2.83"
+lombok = "1.18.42"
+jgit = "7.2.1.202505142326-r"
+grpc = "1.76.0"
+netty = "4.2.9.Final"
+druid = "1.2.11"
+snakeyaml = "2.0"
+jsqlparser = "4.0"
+commonmark = "0.22.0"
+sisyphus = "2.1.22"
+flexmark = "0.64.0"
+flexmarkMath = "0.8.0"
+poi = "5.4.1"
+okhttp = "4.12.0"
+okio = "3.9.0"
+xstream = "1.4.21"
+sshj = "0.40.0"
+commonsPool2 = "2.12.0"
+fastutil = "8.5.16-jb1"
+asm = "9.6.1"
+junitBom = "6.0.0"
+
+# plugins
+changelog = "2.5.0"
+intelliJPlatform = "2.16.0"
+kotlin = "2.3.0"
+kover = "0.9.4"
+qodana = "2025.2.4"
+grammarkit = "2023.3.0.3"
+
+[libraries]
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+
+jansi = { group = "org.fusesource.jansi", name = "jansi", version.ref = "jansi" }
+commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version.ref = "commonsLang3" }
+fastjson = { group = "com.alibaba", name = "fastjson", version.ref = "fastjson" }
+lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
+jgit = { group = "org.eclipse.jgit", name = "org.eclipse.jgit", version.ref = "jgit" }
+kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+
+grpc-protobuf = { group = "io.grpc", name = "grpc-protobuf", version.ref = "grpc" }
+grpc-stub = { group = "io.grpc", name = "grpc-stub", version.ref = "grpc" }
+grpc-netty = { group = "io.grpc", name = "grpc-netty", version.ref = "grpc" }
+grpc-protobuf-lite = { group = "io.grpc", name = "grpc-protobuf-lite", version.ref = "grpc" }
+
+netty-codec-http2 = { group = "io.netty", name = "netty-codec-http2", version.ref = "netty" }
+netty-codec = { group = "io.netty", name = "netty-codec", version.ref = "netty" }
+
+druid = { group = "com.alibaba", name = "druid", version.ref = "druid" }
+snakeyaml = { group = "org.yaml", name = "snakeyaml", version.ref = "snakeyaml" }
+jsqlparser = { group = "com.github.jsqlparser", name = "jsqlparser", version.ref = "jsqlparser" }
+
+commonmark = { group = "org.commonmark", name = "commonmark", version.ref = "commonmark" }
+commonmark-gfm-tables = { group = "org.commonmark", name = "commonmark-ext-gfm-tables", version.ref = "commonmark" }
+commonmark-autolink = { group = "org.commonmark", name = "commonmark-ext-autolink", version.ref = "commonmark" }
+
+sisyphus-grpc = { group = "com.bybutter.sisyphus", name = "sisyphus-grpc", version.ref = "sisyphus" }
+sisyphus-jackson-protobuf = { group = "com.bybutter.sisyphus", name = "sisyphus-jackson-protobuf", version.ref = "sisyphus" }
+
+flexmark-tables = { group = "com.vladsch.flexmark", name = "flexmark-ext-tables", version.ref = "flexmark" }
+flexmark-math = { group = "tech.catheu", name = "flexmark-ext-math", version.ref = "flexmarkMath" }
+
+poi-ooxml = { group = "org.apache.poi", name = "poi-ooxml", version.ref = "poi" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
+
+xstream = { group = "com.thoughtworks.xstream", name = "xstream", version.ref = "xstream" }
+
+sshj = { group = "com.hierynomus", name = "sshj", version.ref = "sshj" }
+commons-pool2 = { group = "org.apache.commons", name = "commons-pool2", version.ref = "commonsPool2" }
+
+fastutil = { group = "org.jetbrains.intellij.deps.fastutil", name = "intellij-deps-fastutil", version.ref = "fastutil" }
+asm-all = { group = "org.jetbrains.intellij.deps", name = "asm-all", version.ref = "asm" }
+
+junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junitBom" }
+
+[plugins]
+changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
+intelliJPlatform = { id = "org.jetbrains.intellij.platform", version.ref = "intelliJPlatform" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+qodana = { id = "org.jetbrains.qodana", version.ref = "qodana" }
+grammarkit = { id = "org.jetbrains.grammarkit", version.ref = "grammarkit" }

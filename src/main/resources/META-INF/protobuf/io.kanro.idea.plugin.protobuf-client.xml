@@ -1,0 +1,25 @@
+<idea-plugin>
+    <extensions defaultExtensionNs="intellij-devProtobuf-plugin">
+        <indexProvider implementation="io.kanro.idea.plugin.protobuf.grpc.index.ServiceMethodIndexProvider"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!--<codeInsight.lineMarkerProvider language="protobuf"
+                                        implementationClass="io.kanro.idea.plugin.protobuf.grpc.gutter.GrpcRunRequestGutterProvider"/>
+        <codeInsight.lineMarkerProvider language="protobuf"
+                                        implementationClass="io.kanro.idea.plugin.protobuf.grpc.gutter.AipRunRequestGutterProvider"/>-->
+        <httpClient.requestExecutionSupport
+                implementation="io.kanro.idea.plugin.protobuf.grpc.request.GrpcRequestExecutionSupport"/>
+        <httpClient.injection.request.implicitMimeTypeProvider
+                implementation="io.kanro.idea.plugin.protobuf.grpc.request.GrpcMimeTypeProvider"/>
+        <stubIndex implementation="io.kanro.idea.plugin.protobuf.grpc.index.ServiceMethodIndex"/>
+        <stubIndex implementation="io.kanro.idea.plugin.protobuf.grpc.index.ServiceQualifiedNameIndex"/>
+        <stubIndex implementation="io.kanro.idea.plugin.protobuf.grpc.index.ServiceShortNameIndex"/>
+        <stubIndex implementation="io.kanro.idea.plugin.protobuf.grpc.index.MessageShortNameIndex"/>
+        <psi.referenceContributor language="HTTP Request"
+                                  implementation="io.kanro.idea.plugin.protobuf.grpc.referece.GrpcPsiReferenceContributor"/>
+        <psi.referenceContributor language="JSON"
+                                  implementation="io.kanro.idea.plugin.protobuf.grpc.referece.GrpcJsonReferenceContributor"/>
+        <typedHandler implementation="io.kanro.idea.plugin.protobuf.grpc.editor.JsonFieldCompletionSuggester"/>
+    </extensions>
+</idea-plugin>

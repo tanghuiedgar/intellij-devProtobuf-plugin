@@ -1,0 +1,46 @@
+{
+  "icon": {
+    "proto": {
+      "expui": {
+        "enum.svg": "icon/proto/enum.svg",
+        "enum_dark.svg": "icon/proto/enum_dark.svg",
+        "enum_value.svg": "icon/proto/enum_value.svg",
+        "enum_value_dark.svg": "icon/proto/enum_value_dark.svg",
+        "extend.svg": "icon/proto/extend.svg",
+        "extend_dark.svg": "icon/proto/extend_dark.svg",
+        "field.svg": "icon/proto/field.svg",
+        "field_dark.svg": "icon/proto/field_dark.svg",
+        "group_field.svg": "icon/proto/group_field.svg",
+        "group_field_dark.svg": "icon/proto/group_field_dark.svg",
+        "implementedRpc.svg": "icon/proto/implementedRpc.svg",
+        "implementedRpc_dark.svg": "icon/proto/implementedRpc_dark.svg",
+        "implementedService.svg": "icon/proto/implementedService.svg",
+        "implementedService_dark.svg": "icon/proto/implementedService_dark.svg",
+        "implementingRpc.svg": "icon/proto/implementingRpc.svg",
+        "implementingRpc_dark.svg": "icon/proto/implementingRpc_dark.svg",
+        "implementingService.svg": "icon/proto/implementingService.svg",
+        "implementingService_dark.svg": "icon/proto/implementingService_dark.svg",
+        "message.svg": "icon/proto/message.svg",
+        "message_dark.svg": "icon/proto/message_dark.svg",
+        "oneof_field.svg": "icon/proto/oneof_field.svg",
+        "oneof_field_dark.svg": "icon/proto/oneof_field_dark.svg",
+        "procedure.svg": "icon/proto/procedure.svg",
+        "procedureHttp.svg": "icon/proto/procedureHttp.svg",
+        "protobuf_file.svg": "icon/proto/protobuf_file.svg",
+        "protobuf_file_dark.svg": "icon/proto/protobuf_file_dark.svg",
+        "resource_message.svg": "icon/proto/resource_message.svg",
+        "resource_message_dark.svg": "icon/proto/resource_message_dark.svg",
+        "rpc_method.svg": "icon/proto/rpc_method.svg",
+        "rpc_method_dark.svg": "icon/proto/rpc_method_dark.svg",
+        "rpc_method_bistream.svg": "icon/proto/rpc_method_bistream.svg",
+        "rpc_method_bistream_dark.svg": "icon/proto/rpc_method_bistream_dark.svg",
+        "rpc_method_client_stream.svg": "icon/proto/rpc_method_client_stream.svg",
+        "rpc_method_client_stream_dark.svg": "icon/proto/rpc_method_client_stream_dark.svg",
+        "rpc_method_server_stream.svg": "icon/proto/rpc_method_server_stream.svg",
+        "rpc_method_server_stream_dark.svg": "icon/proto/rpc_method_server_stream_dark.svg",
+        "service.svg": "icon/proto/service.svg",
+        "service_dark.svg": "icon/proto/service_dark.svg"
+      }
+    }
+  }
+}

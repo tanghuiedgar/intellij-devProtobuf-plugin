@@ -1,0 +1,85 @@
+<idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>intellij-devProtobuf-plugin</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Dev-Protobuf</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor>tangHui</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <!--<description><![CDATA[AMS微服务代码生成器, 生成微服务代码，上传文件到服务器升级微服务，另外还包含一些工具类生成方法和工具类]]></description>-->
+
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.json</depends>
+    <depends optional="true" config-file="protobuf/io.kanro.idea.plugin.protobuf-java.xml">com.intellij.modules.java</depends>
+    <depends optional="true" config-file="protobuf/io.kanro.idea.plugin.protobuf-sisyphus.xml">org.jetbrains.kotlin</depends>
+    <depends optional="true" config-file="protobuf/io.kanro.idea.plugin.protobuf-microservices.xml">
+        com.intellij.modules.microservices
+    </depends>
+    <depends optional="true" config-file="protobuf/io.kanro.idea.plugin.protobuf-client.xml">
+        com.jetbrains.restClient
+    </depends>
+    <depends optional="true" config-file="protobuf/io.kanro.idea.plugin.protobuf-go.xml">org.jetbrains.plugins.go</depends>
+    <depends optional="true" config-file="protobuf/io.kanro.idea.plugin.protobuf-markdown.xml">
+        org.intellij.plugins.markdown
+    </depends>
+    <depends>com.intellij.java</depends>
+    <!--<depends>org.intellij.intelliLang</depends>-->
+    <depends>com.intellij.velocity</depends>
+    <depends>com.intellij.gradle</depends>
+    <depends>org.jetbrains.idea.maven</depends>
+    <depends>Git4Idea</depends>
+    <depends>org.jetbrains.plugins.terminal</depends>
+    <depends>com.intellij.database</depends>
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <depends>com.intellij.modules.remoteServers</depends>
+    <depends>com.intellij.spring</depends>
+    <depends>com.intellij.freemarker</depends>
+
+    <extensionPoints>
+        <extensionPoint
+                interface="io.kanro.idea.plugin.protobuf.lang.root.ProtobufRootProvider"
+                dynamic="true"
+                name="rootProvider"/>
+        <!--<extensionPoint
+                interface="io.kanro.idea.plugin.protobuf.lang.psi.proto.feature.ProtobufSymbolReferenceProvider"
+                dynamic="true"
+                name="symbolReferenceProvider"/>-->
+        <extensionPoint
+                interface="io.kanro.idea.plugin.protobuf.lang.psi.proto.feature.ProtobufIndexProvider"
+                dynamic="true"
+                name="indexProvider"/>
+        <extensionPoint
+                interface="io.kanro.idea.plugin.protobuf.lang.psi.proto.feature.ProtobufStubExternalProvider"
+                dynamic="true"
+                name="stubExternalProvider"/>
+        <extensionPoint
+                interface="io.kanro.idea.plugin.protobuf.compile.ProtobufCompilerPlugin"
+                dynamic="true"
+                name="protocPlugin"/>
+    </extensionPoints>
+
+    <xi:include href="protobuf/io.kanro.idea.plugin.protobuf-lang.xml"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <!--<projectService serviceImplementation="com.tanghuidev.idea.plugin.common.service.ProjectListener"/>
+        <moduleType id="MY_AMS_MODULE" implementationClass="com.tanghui.module.MyCustomModuleType"/>
+        <moduleBuilder id="MY_AMS_MODULE" builderClass="com.tanghui.module.MyCustomModuleBuilder"/>
+        <configurationType implementation="com.tanghuidev.idea.plugin.deploy.run.AMSConfigurationType"/>
+        <postStartupActivity implementation="com.tanghuidev.idea.plugin.deploy.run.AMSStartupActivity"/>-->
+        <notificationGroup id="Common_Tool"
+                           displayType="BALLOON"
+                           bundle="messages.AMS"
+                           key="notification.group.name"/>
+    </extensions>
+</idea-plugin>

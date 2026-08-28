@@ -1,0 +1,171 @@
+<!-- protobuf -->
+<idea-plugin>
+    <extensions defaultExtensionNs="intellij-devProtobuf-plugin">
+        <rootProvider id="embedded"
+                      implementation="io.kanro.idea.plugin.protobuf.lang.root.EmbeddedRootProvider"/>
+        <rootProvider id="module"
+                      implementation="io.kanro.idea.plugin.protobuf.lang.root.ModuleSourceRootProvider"/>
+        <rootProvider id="depModule"
+                      implementation="io.kanro.idea.plugin.protobuf.lang.root.DepModuleSourceRootProvider"/>
+        <rootProvider id="library"
+                      implementation="io.kanro.idea.plugin.protobuf.lang.root.LibraryRootProvider"/>
+        <rootProvider id="settings"
+                      implementation="io.kanro.idea.plugin.protobuf.lang.root.ImportRootProvider"/>
+        <rootProvider id="decompile"
+                      implementation="io.kanro.idea.plugin.protobuf.decompile.DecompiledRootProvider"/>
+        <stubExternalProvider
+                implementation="io.kanro.idea.plugin.protobuf.java.FileJavaOptionsProvider"/>
+        <protocPlugin implementation="io.kanro.idea.plugin.protobuf.compile.basic.FileCompiler"/>
+        <protocPlugin implementation="io.kanro.idea.plugin.protobuf.compile.basic.MessageCompiler"/>
+        <protocPlugin implementation="io.kanro.idea.plugin.protobuf.compile.basic.MessageFieldCompiler"/>
+        <protocPlugin implementation="io.kanro.idea.plugin.protobuf.compile.basic.MessageMapEntryCompiler"/>
+        <protocPlugin implementation="io.kanro.idea.plugin.protobuf.compile.basic.MessageMapFieldCompiler"/>
+        <protocPlugin implementation="io.kanro.idea.plugin.protobuf.compile.basic.MessageOneofCompiler"/>
+        <protocPlugin implementation="io.kanro.idea.plugin.protobuf.compile.basic.EnumCompiler"/>
+        <protocPlugin implementation="io.kanro.idea.plugin.protobuf.compile.basic.EnumValueCompiler"/>
+        <protocPlugin implementation="io.kanro.idea.plugin.protobuf.compile.basic.ServiceCompiler"/>
+        <protocPlugin implementation="io.kanro.idea.plugin.protobuf.compile.basic.ServiceMethodCompiler"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="protobuf" language="protobuf"
+                  implementationClass="io.kanro.idea.plugin.protobuf.lang.ProtobufFileType" extensions="proto"/>
+        <lang.parserDefinition language="protobuf"
+                               implementationClass="io.kanro.idea.plugin.protobuf.lang.ProtobufParserDefinition"/>
+        <lang.syntaxHighlighter language="protobuf"
+                                implementationClass="io.kanro.idea.plugin.protobuf.lang.highlight.ProtobufHighlighter"/>
+        <annotator language="protobuf"
+                   implementationClass="io.kanro.idea.plugin.protobuf.lang.highlight.ProtobufHighlightingAnnotator"
+                   order="FIRST"/>
+
+        <annotator language="protobuf"
+                   implementationClass="io.kanro.idea.plugin.protobuf.lang.annotator.ProtobufAnnotator"/>
+        <annotator
+                language="protobuf"
+                implementationClass="io.kanro.idea.plugin.protobuf.lang.annotator.Protobuf3Annotator"/>
+        <annotator
+                language="protobuf"
+                implementationClass="io.kanro.idea.plugin.protobuf.lang.annotator.Protobuf2Annotator"/>
+
+        <iconProvider implementation="io.kanro.idea.plugin.protobuf.lang.ui.ProtobufIconProvider"/>
+        <lang.ast.factory implementationClass="io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufASTFactory"
+                          language="protobuf"/>
+        <lang.documentationProvider language="protobuf"
+                                    implementationClass="io.kanro.idea.plugin.protobuf.lang.ui.ProtobufDocumentationProvider"/>
+        <lang.quoteHandler language="protobuf"
+                           implementationClass="io.kanro.idea.plugin.protobuf.lang.edting.ProtobufQuoteHandler"/>
+        <completion.contributor language="protobuf"
+                                implementationClass="io.kanro.idea.plugin.protobuf.lang.completion.ProtobufCompletionContributor"/>
+        <lang.psiStructureViewFactory language="protobuf"
+                                      implementationClass="io.kanro.idea.plugin.protobuf.lang.ui.ProtobufStructureViewFactory"/>
+        <elementDescriptionProvider
+                implementation="io.kanro.idea.plugin.protobuf.lang.ui.ProtobufElementDescriptionProvider"/>
+        <lang.importOptimizer language="protobuf"
+                              implementationClass="io.kanro.idea.plugin.protobuf.lang.formatter.ProtobufImportOptimizer"/>
+        <lang.commenter language="protobuf"
+                        implementationClass="io.kanro.idea.plugin.protobuf.lang.formatter.ProtobufCommenter"/>
+        <codeStyleSettingsProvider
+                implementation="io.kanro.idea.plugin.protobuf.lang.formatter.ProtobufCodeStyleSettingsProvider"/>
+        <langCodeStyleSettingsProvider
+                implementation="io.kanro.idea.plugin.protobuf.lang.formatter.ProtobufLanguageCodeStyleSettingsProvider"/>
+        <lang.braceMatcher language="protobuf"
+                           implementationClass="io.kanro.idea.plugin.protobuf.lang.edting.ProtobufPairedBraceMatcher"/>
+        <lang.formatter language="protobuf"
+                        implementationClass="io.kanro.idea.plugin.protobuf.lang.formatter.ProtobufFormattingModelBuilder"/>
+        <lang.findUsagesProvider language="protobuf"
+                                 implementationClass="io.kanro.idea.plugin.protobuf.lang.usage.ProtobufFindUsageProvider"
+        />
+        <usageTypeProvider implementation="io.kanro.idea.plugin.protobuf.lang.usage.ProtobufUsageTypeProvider"/>
+        <lang.foldingBuilder language="protobuf"
+                             implementationClass="io.kanro.idea.plugin.protobuf.lang.folding.ProtobufFoldingBuilder"/>
+        <lang.refactoringSupport language="protobuf"
+                                 implementationClass="io.kanro.idea.plugin.protobuf.lang.reference.ProtobufRefactoringSupportProvider"/>
+        <spellchecker.support language="protobuf"
+                              implementationClass="io.kanro.idea.plugin.protobuf.lang.edting.ProtobufSpellcheckingStrategy"/>
+
+        <projectConfigurable groupId="language"
+                             instance="io.kanro.idea.plugin.protobuf.lang.settings.ProtobufSettingsConfigurable"/>
+        <gotoSymbolContributor
+                implementation="io.kanro.idea.plugin.protobuf.lang.reference.ProtobufGotoSymbolContributor"/>
+        <colorSettingsPage
+                implementation="io.kanro.idea.plugin.protobuf.lang.highlight.ProtobufColorSettingsPage"/>
+
+        <!-- Stub -->
+        <stubElementTypeHolder externalIdPrefix="protobuf"
+                               class="io.kanro.idea.plugin.protobuf.lang.psi.proto.stub.type.ProtobufStubTypes"/>
+        <stubIndex implementation="io.kanro.idea.plugin.protobuf.lang.psi.proto.stub.index.ShortNameIndex"/>
+        <stubIndex implementation="io.kanro.idea.plugin.protobuf.lang.psi.proto.stub.index.QualifiedNameIndex"/>
+        <stubIndex implementation="io.kanro.idea.plugin.protobuf.lang.psi.proto.stub.index.ResourceTypeIndex"/>
+
+        <!-- AIP Spec -->
+        <psi.referenceContributor language="protobuf"
+                                  implementation="io.kanro.idea.plugin.protobuf.aip.reference.contributor.AipReferenceContributor"/>
+        <annotator language="protobuf" implementationClass="io.kanro.idea.plugin.protobuf.aip.annotator.AipAnnotator"/>
+        <completion.contributor language="protobuf"
+                                implementationClass="io.kanro.idea.plugin.protobuf.aip.completion.AipCompletionContributor"/>
+        <iconMapper mappingFile="icon/proto/expui/ProtobufIconMappings.json"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="prototext" language="prototext"
+                  implementationClass="io.kanro.idea.plugin.protobuf.lang.ProtoTextFileType"
+                  extensions="txtpb;pbtxt;textproto;textpb;protoascii;pb.txt"/>
+        <lang.parserDefinition language="prototext"
+                               implementationClass="io.kanro.idea.plugin.protobuf.lang.ProtoTextParserDefinition"/>
+        <lang.syntaxHighlighter language="prototext"
+                                implementationClass="io.kanro.idea.plugin.protobuf.lang.highlight.ProtoTextHighlighter"/>
+        <langCodeStyleSettingsProvider
+                implementation="io.kanro.idea.plugin.protobuf.lang.formatter.ProtoTextLanguageCodeStyleSettingsProvider"/>
+        <annotator language="prototext"
+                   implementationClass="io.kanro.idea.plugin.protobuf.lang.highlight.ProtoTextHighlightingAnnotator"
+                   order="FIRST"/>
+        <annotator language="prototext"
+                   implementationClass="io.kanro.idea.plugin.protobuf.lang.annotator.ProtoTextAnnotator"/>
+        <lang.braceMatcher language="prototext"
+                           implementationClass="io.kanro.idea.plugin.protobuf.lang.edting.ProtoTextPairedBraceMatcher"/>
+        <lang.formatter language="prototext"
+                        implementationClass="io.kanro.idea.plugin.protobuf.lang.formatter.ProtoTextFormattingModelBuilder"/>
+        <lang.quoteHandler language="prototext"
+                           implementationClass="io.kanro.idea.plugin.protobuf.lang.edting.ProtoTextQuoteHandler"/>
+        <lang.commenter language="prototext"
+                        implementationClass="io.kanro.idea.plugin.protobuf.lang.formatter.ProtoTextCommenter"/>
+        <spellchecker.support language="prototext"
+                              implementationClass="io.kanro.idea.plugin.protobuf.lang.edting.ProtoTextSpellcheckingStrategy"/>
+        <lang.ast.factory implementationClass="io.kanro.idea.plugin.protobuf.lang.psi.text.ProtoTextASTFactory"
+                          language="prototext"/>
+        <psi.referenceContributor language="prototext"
+                                  implementation="io.kanro.idea.plugin.protobuf.lang.psi.text.reference.ProtoTextSharpCommentReferenceContributor"/>
+        <colorSettingsPage
+                implementation="io.kanro.idea.plugin.protobuf.lang.highlight.ProtoTextColorSettingsPage"/>
+    </extensions>
+
+    <!-- 操作方法 -->
+    <actions>
+        <group id="io.kanro.idea.plugin.Protobuf" text="Protobuf" popup="true"
+               icon="/icon/proto/logo.svg"
+               class="io.kanro.idea.plugin.protobuf.lang.actions.ProtobufActionGroup">
+            <add-to-group group-id="EditMenu" anchor="last"/>
+
+            <action icon="/icon/proto/arrangeFromMin.svg"
+                    id="io.kanro.idea.plugin.protobuf.ArrangeFieldsNumberFromMin"
+                    class="io.kanro.idea.plugin.protobuf.lang.actions.ArrangeFieldsNumberFromMinAction"
+                    text="Arrange Field Numbers From Min">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt A"/>
+            </action>
+
+            <action icon="/icon/proto/arrangeToMax.svg"
+                    id="io.kanro.idea.plugin.protobuf.ArrangeFieldsNumberToMax"
+                    class="io.kanro.idea.plugin.protobuf.lang.actions.ArrangeFieldsNumberToMaxAction"
+                    text="Arrange Field Numbers To Max">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt D"/>
+            </action>
+        </group>
+
+        <group id="io.kanro.idea.plugin.Protobuf.Popup" popup="false">
+            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorToggleColumnMode"/>
+
+            <separator/>
+            <reference ref="io.kanro.idea.plugin.Protobuf"/>
+        </group>
+    </actions>
+</idea-plugin>
