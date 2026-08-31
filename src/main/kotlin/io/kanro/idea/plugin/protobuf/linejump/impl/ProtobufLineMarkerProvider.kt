@@ -1,0 +1,64 @@
+package io.kanro.idea.plugin.protobuf.linejump.impl
+
+import com.intellij.codeInsight.daemon.RelatedItemLineMarkerInfo
+import com.intellij.codeInsight.daemon.RelatedItemLineMarkerProvider
+import com.intellij.codeInsight.navigation.NavigationGutterIconBuilder
+import com.intellij.psi.PsiElement
+import com.intellij.psi.search.searches.DirectClassInheritorsSearch
+import com.intellij.psi.search.searches.OverridingMethodsSearch
+import io.kanro.idea.plugin.protobuf.ui.AmsIcons
+import io.kanro.idea.plugin.protobuf.ProtobufIcons
+import io.kanro.idea.plugin.protobuf.java.isJava
+import io.kanro.idea.plugin.protobuf.java.toCoroutineImplBaseClass
+import io.kanro.idea.plugin.protobuf.java.toCoroutineImplBaseMethod
+import io.kanro.idea.plugin.protobuf.java.toImplBaseClass
+import io.kanro.idea.plugin.protobuf.java.toImplBaseMethod
+import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufIdentifier
+import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufRpcDefinition
+import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufServiceDefinition
+
+class ProtobufLineMarkerProvider : RelatedItemLineMarkerProvider() {
+    override fun collectNavigationMarkers(
+        element: PsiElement,
+        result: MutableCollection<in RelatedItemLineMarkerInfo<*>>,
+    ) {
+        val identifier = element as? ProtobufIdentifier ?: return
+        if (!isJava(element)) return
+
+        when (val owner = identifier.parent) {
+            is ProtobufRpcDefinition -> {
+                val methods =
+                    owner.toImplBaseMethod()?.let {
+                        OverridingMethodsSearch.search(it).toList()
+                    } ?: listOf()
+                val ktMethods =
+                    owner.toCoroutineImplBaseMethod()?.let {
+                        OverridingMethodsSearch.search(it).toList()
+                    } ?: listOf()
+                if (methods.isEmpty() && ktMethods.isEmpty()) return
+                val builder: NavigationGutterIconBuilder<PsiElement> =
+                    NavigationGutterIconBuilder.create(AmsIcons.IMPLEMENTED_RPC)
+                        .setTargets(methods + ktMethods)
+                        .setTooltipText("Implemented")
+                result.add(builder.createLineMarkerInfo(element.identifierLiteral ?: element))
+            }
+
+            is ProtobufServiceDefinition -> {
+                val apis =
+                    owner.toImplBaseClass()?.let {
+                        DirectClassInheritorsSearch.search(it).findAll().toList()
+                    } ?: listOf()
+                val ktApis =
+                    owner.toCoroutineImplBaseClass()?.let {
+                        DirectClassInheritorsSearch.search(it).findAll().toList()
+                    } ?: listOf()
+                if (apis.isEmpty() && ktApis.isEmpty()) return
+                val builder: NavigationGutterIconBuilder<PsiElement> =
+                    NavigationGutterIconBuilder.create(ProtobufIcons.IMPLEMENTED_SERVICE)
+                        .setTargets(apis + ktApis)
+                        .setTooltipText("Implemented")
+                result.add(builder.createLineMarkerInfo(element.identifierLiteral ?: element))
+            }
+        }
+    }
+}

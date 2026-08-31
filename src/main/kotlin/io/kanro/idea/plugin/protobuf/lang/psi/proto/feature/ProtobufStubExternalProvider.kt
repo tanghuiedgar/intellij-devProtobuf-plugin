@@ -6,7 +6,7 @@ import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufFile
 interface ProtobufStubExternalProvider {
     companion object {
         var extensionPoint: ExtensionPointName<ProtobufStubExternalProvider> =
-            ExtensionPointName.create("com.tanghui.plugin.stubExternalProvider")
+            ExtensionPointName.create("intellij.devProtobuf.plugin.stubExternalProvider")
     }
 
     fun mergeExternalData(

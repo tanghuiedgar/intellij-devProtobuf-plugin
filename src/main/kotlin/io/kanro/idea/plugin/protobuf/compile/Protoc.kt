@@ -67,7 +67,7 @@ interface ProtobufCompilerPlugin<T : ProtobufCompilingState<*, *>> {
 
     companion object {
         var extensionPoint: ExtensionPointName<ProtobufCompilerPlugin<in ProtobufCompilingState<*, *>>> =
-            ExtensionPointName.create("com.tanghui.plugin.protocPlugin")
+            ExtensionPointName.create("intellij.devProtobuf.plugin.protocPlugin")
     }
 }
 

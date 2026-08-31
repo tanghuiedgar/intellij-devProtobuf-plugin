@@ -1,5 +1,5 @@
 <idea-plugin>
-    <extensions defaultExtensionNs="intellij-devProtobuf-plugin">
+    <extensions defaultExtensionNs="intellij.devProtobuf.plugin">
         <indexProvider implementation="io.kanro.idea.plugin.protobuf.java.JavaIndexProvider"/>
     </extensions>
 
@@ -9,6 +9,8 @@
                                         implementationClass="io.kanro.idea.plugin.protobuf.java.JavaLineMarkerProvider"/>
         <codeInsight.lineMarkerProvider language="protobuf"
                                         implementationClass="io.kanro.idea.plugin.protobuf.java.ProtobufLineMarkerProvider"/>-->
+        <codeInsight.lineMarkerProvider language="protobuf"
+                                        implementationClass="io.kanro.idea.plugin.protobuf.linejump.impl.ProtobufLineMarkerProvider"/>
         <findUsagesHandlerFactory implementation="io.kanro.idea.plugin.protobuf.java.JavaFindUsageFactory"/>
     </extensions>
 </idea-plugin>

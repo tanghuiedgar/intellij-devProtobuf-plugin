@@ -7,7 +7,7 @@ import io.kanro.idea.plugin.protobuf.lang.psi.proto.stub.ProtobufStub
 interface ProtobufIndexProvider {
     companion object {
         var extensionPoint: ExtensionPointName<ProtobufIndexProvider> =
-            ExtensionPointName.create("com.tanghui.plugin.indexProvider")
+            ExtensionPointName.create("intellij.devProtobuf.plugin.indexProvider")
 
         fun buildIndex(
             stub: ProtobufStub<*>,

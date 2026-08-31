@@ -1,5 +1,5 @@
 <idea-plugin>
-    <extensions defaultExtensionNs="intellij-devProtobuf-plugin">
+    <extensions defaultExtensionNs="intellij.devProtobuf.plugin">
         <indexProvider implementation="io.kanro.idea.plugin.protobuf.sisyphus.SisyphusIndexProvider"/>
     </extensions>
 

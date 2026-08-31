@@ -1,6 +1,6 @@
 <!-- protobuf -->
 <idea-plugin>
-    <extensions defaultExtensionNs="intellij-devProtobuf-plugin">
+    <extensions defaultExtensionNs="intellij.devProtobuf.plugin">
         <rootProvider id="embedded"
                       implementation="io.kanro.idea.plugin.protobuf.lang.root.EmbeddedRootProvider"/>
         <rootProvider id="module"

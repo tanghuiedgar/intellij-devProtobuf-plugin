@@ -7,7 +7,7 @@ import com.intellij.psi.search.GlobalSearchScope
 interface ProtobufRootProvider {
     companion object {
         var extensionPoint: ExtensionPointName<ProtobufRootProvider> =
-            ExtensionPointName.create("com.tanghui.plugin.rootProvider")
+            ExtensionPointName.create("intellij.devProtobuf.plugin.rootProvider")
     }
 
     fun id(): String?

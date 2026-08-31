@@ -1,5 +1,5 @@
 <idea-plugin>
-    <extensions defaultExtensionNs="intellij-devProtobuf-plugin">
+    <extensions defaultExtensionNs="intellij.devProtobuf.plugin">
         <rootProvider implementation="io.kanro.idea.plugin.protobuf.golang.GoRootProvider"/>
         <indexProvider implementation="io.kanro.idea.plugin.protobuf.golang.GoIndexProvider"/>
     </extensions>

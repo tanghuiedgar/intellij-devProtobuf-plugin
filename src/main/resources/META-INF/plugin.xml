@@ -1,6 +1,6 @@
 <idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>intellij-devProtobuf-plugin</id>
+    <id>intellij.devProtobuf.plugin</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
@@ -81,5 +81,18 @@
                            displayType="BALLOON"
                            bundle="messages.AMS"
                            key="notification.group.name"/>
+    </extensions>
+    <!-- 跳转操作 -->
+    <extensions defaultExtensionNs="com.intellij">
+        <codeInsight.lineMarkerProvider id="tanghui.StatementLineMarkerProvider" language="protobuf"
+                                        implementationClass="io.kanro.idea.plugin.protobuf.linejump.impl.StatementLineMarkerProvider"/>
+        <codeInsight.lineMarkerProvider id="tanghui.ProtoToClientLineMarkerProvider" language="protobuf"
+                                        implementationClass="io.kanro.idea.plugin.protobuf.linejump.impl.ProtoToClientLineMarkerProvider"/>
+        <codeInsight.lineMarkerProvider id="tanghui.MessageToRpcLineMarkerProvider" language="protobuf"
+                                        implementationClass="io.kanro.idea.plugin.protobuf.linejump.impl.MessageToRpcLineMarkerProvider"/>
+        <codeInsight.lineMarkerProvider id="tanghui.JavaToProtoLineMarkerProvider" language="JAVA"
+                                        implementationClass="io.kanro.idea.plugin.protobuf.linejump.impl.JavaToProtoLineMarkerProvider"/>
+        <codeInsight.lineMarkerProvider id="tanghui.ProviderToProtoLineMarkerProvider" language="JAVA"
+                                        implementationClass="io.kanro.idea.plugin.protobuf.linejump.impl.ProviderToProtoLineMarkerProvider"/>
     </extensions>
 </idea-plugin>
