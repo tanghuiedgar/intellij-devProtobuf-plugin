@@ -6,13 +6,13 @@ import com.intellij.psi.impl.source.PsiJavaCodeReferenceElementImpl;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.search.searches.ReferencesSearch;
 import com.intellij.spring.model.utils.SpringCommonUtils;
-import io.kanro.idea.plugin.protobuf.linejump.SimpleLineMarkerProvider;
-import io.kanro.idea.plugin.protobuf.ui.AmsIcons;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufElement;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufIdentifier;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufRpcDefinition;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufServiceDefinition;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.impl.ProtobufPackageStatementImpl;
+import io.kanro.idea.plugin.protobuf.linejump.SimpleLineMarkerProvider;
+import io.kanro.idea.plugin.protobuf.ui.AmsIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

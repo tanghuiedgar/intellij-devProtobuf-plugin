@@ -14,12 +14,12 @@ import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.search.searches.ReferencesSearch;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.ui.JBColor;
-import io.kanro.idea.plugin.protobuf.ui.AmsIcons;
 import io.kanro.idea.plugin.protobuf.lang.ProtobufFileType;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufIdentifier;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufMessageDefinition;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.impl.ProtobufLineCommentImpl;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.impl.ProtobufRpcDefinitionImpl;
+import io.kanro.idea.plugin.protobuf.ui.AmsIcons;
 import org.apache.commons.collections.CollectionUtils;
 import org.jetbrains.annotations.NotNull;
 

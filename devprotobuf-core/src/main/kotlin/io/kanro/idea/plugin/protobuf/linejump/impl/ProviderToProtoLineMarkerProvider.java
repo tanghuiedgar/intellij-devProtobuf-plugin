@@ -10,12 +10,12 @@ import com.intellij.psi.PsiMethod;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.stubs.StubIndex;
 import com.intellij.psi.stubs.StubIndexKey;
-import io.kanro.idea.plugin.protobuf.ui.AmsIcons;
 import io.kanro.idea.plugin.protobuf.java.JavaNameIndex;
 import io.kanro.idea.plugin.protobuf.lang.ProtobufFileType;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufElement;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufRpcDefinition;
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufServiceDefinition;
+import io.kanro.idea.plugin.protobuf.ui.AmsIcons;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 

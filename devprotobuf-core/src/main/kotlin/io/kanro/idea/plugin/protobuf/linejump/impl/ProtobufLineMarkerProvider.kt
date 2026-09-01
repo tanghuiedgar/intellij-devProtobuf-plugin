@@ -6,16 +6,12 @@ import com.intellij.codeInsight.navigation.NavigationGutterIconBuilder
 import com.intellij.psi.PsiElement
 import com.intellij.psi.search.searches.DirectClassInheritorsSearch
 import com.intellij.psi.search.searches.OverridingMethodsSearch
-import io.kanro.idea.plugin.protobuf.ui.AmsIcons
 import io.kanro.idea.plugin.protobuf.ProtobufIcons
-import io.kanro.idea.plugin.protobuf.java.isJava
-import io.kanro.idea.plugin.protobuf.java.toCoroutineImplBaseClass
-import io.kanro.idea.plugin.protobuf.java.toCoroutineImplBaseMethod
-import io.kanro.idea.plugin.protobuf.java.toImplBaseClass
-import io.kanro.idea.plugin.protobuf.java.toImplBaseMethod
+import io.kanro.idea.plugin.protobuf.java.*
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufIdentifier
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufRpcDefinition
 import io.kanro.idea.plugin.protobuf.lang.psi.proto.ProtobufServiceDefinition
+import io.kanro.idea.plugin.protobuf.ui.AmsIcons
 
 class ProtobufLineMarkerProvider : RelatedItemLineMarkerProvider() {
     override fun collectNavigationMarkers(
